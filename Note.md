@@ -45,9 +45,9 @@ $f^{*}=\arg \min _{f} L(f)$
 
 1. 随机选择一个初始值$w_{0}$
 2. 计算$\left.\frac{d L}{d w}\right|_{w=w^{0}}$
-3. $w^{1} \leftarrow w^{0}-\left.\eta \frac{d L}{d w}\right|_{w=w^{0}}$，$\eta$：learning rate
+3. $w^{1} \leftarrow w^{0}-\left.\eta \frac{d L}{d w}\right|_{w=w^{0}}$，  $\eta$：learning rate
 4. 计算$\left.\frac{d L}{d w}\right|_{w=w^{1}}$
-5. $w^{2} \leftarrow w^{1}-\left.\eta \frac{d L}{d w}\right|_{w=w^{·}}$，$\eta$：learning rate
+5. $w^{2} \leftarrow w^{1}-\left.\eta \frac{d L}{d w}\right|_{w=w^{·}}$，  $\eta$：learning rate
 6. 持续迭代……
 
 <u>**理解**：斜率为负→最优点在当前点右侧→增加$w$</u>
@@ -56,15 +56,15 @@ $f^{*}=\arg \min _{f} L(f)$
 
 ​			<u>对于曲线可能到达局部最优解，但对于Linear Regression中损失函数是凸的，一定可以找到最优解</u>
 
-<img src="C:\Users\Amberimzyj\AppData\Roaming\Typora\typora-user-images\image-20211124205058693.png" alt="image-20211124205058693" style="zoom: 33%;" />
+<img src="pic/image-20211124205058693.png" alt="image-20211124205058693" style="zoom: 33%;" />
 
 二、对于只有多参数的$L(w,b)$，$w^{*},b^{*}=\arg \min _{w,b} L(w,b)$
 
 1. 随机选择一个初始值$w_{0},b_{0}$
 2. 计算$\left.\frac{\partial L}{\partial w}\right|_{w=w^{0}, b=b^{0}}$，$\left.\frac{\partial L}{\partial b}\right|_{w=w^{0}, b=b^{0}}$
-3. $w^{1} \leftarrow w^{0}-\left.\eta \frac{\partial L}{\partial w}\right|_{w=w^{0}, b=b^{0}}$, $b^{1} \leftarrow b^{0}-\left.\eta \frac{\partial L}{\partial b}\right|_{w=w^{0}, b=b^{0}}$  , $\eta$：learning rate
+3. $w^{1} \leftarrow w^{0}-\left.\eta \frac{\partial L}{\partial w}\right|_{w=w^{0}, b=b^{0}}, b^{1} \leftarrow b^{0}-\left.\eta \frac{\partial L}{\partial b}\right|_{w=w^{0}, b=b^{0}}$  ,     $\eta$：learning rate
 4. 计算$\left.\frac{\partial L}{\partial w}\right|_{w=w^{1}, b=b^{1}}$，$\left.\frac{\partial L}{\partial b}\right|_{w=w^{1}, b=b^{1}}$
-5. $w^{2} \leftarrow w^{1}-\left.\eta \frac{\partial L}{\partial w}\right|_{w=w^{1}, b=b^{1}}$, $b^{2} \leftarrow b^{1}-\left.\eta \frac{\partial L}{\partial b}\right|_{w=w^{1}, b=b^{1}}$  , $\eta$：learning rate
+5. $w^{2} \leftarrow w^{1}-\left.\eta \frac{\partial L}{\partial w}\right|_{w=w^{1}, b=b^{1}}, b^{2} \leftarrow b^{1}-\left.\eta \frac{\partial L}{\partial b}\right|_{w=w^{1}, b=b^{1}}$  ,      $\eta$：learning rate
 6. 持续迭代……
 
 此时gradient为：$\nabla L= \left[\begin{array}{l}\frac{\partial L}{\partial w} \\ \frac{\partial L}{\partial b}\end{array}\right]$
@@ -77,7 +77,7 @@ $f^{*}=\arg \min _{f} L(f)$
 
 得到次数从1-5的五个model的error如下：
 
-<img src="C:\Users\Amberimzyj\AppData\Roaming\Typora\typora-user-images\image-20211124210638787.png" alt="image-20211124210638787" style="zoom: 67%;" />
+<img src="pic/image-20211124210638787.png" alt="image-20211124210638787" style="zoom: 67%;" />
 
 **注**：由于高次数model可以表示低次数model，高次数model的function space包含低次数model的function space
 
@@ -85,7 +85,7 @@ $f^{*}=\arg \min _{f} L(f)$
 
 则不同model在训练集和测试集上的error如下：
 
-<img src="C:\Users\Amberimzyj\AppData\Roaming\Typora\typora-user-images\image-20211124210904911.png" alt="image-20211124210904911" style="zoom:67%;" />
+<img src="pic/image-20211124210904911.png" alt="image-20211124210904911" style="zoom:67%;" />
 
 如上，高次数model在测试集上过拟合，可见需要增加数据（发掘更多特征）
 
@@ -119,7 +119,7 @@ $\lambda$为常数，自己设置
 
 ### 正则化结果
 
-<img src="C:\Users\Amberimzyj\AppData\Roaming\Typora\typora-user-images\image-20211124213302076.png" alt="image-20211124213302076" style="zoom:67%;" />
+<img src="pic/image-20211124213302076.png" alt="image-20211124213302076" style="zoom:67%;" />
 
 可以看出：
 
@@ -151,7 +151,7 @@ $E[s^{2}]=\frac{N-1}{N}\sigma^{2}\ne \sigma^{2} $→大多数情况下$s^{2}<\si
 
 #### Bias和variance的区别
 
-<img src="C:\Users\Amberimzyj\AppData\Roaming\Typora\typora-user-images\image-20211124214539513.png" alt="image-20211124214539513" style="zoom:67%;" />
+<img src="pic/image-20211124214539513.png" alt="image-20211124214539513" style="zoom:67%;" />
 
 $\hat{f}$：最优函数（实际的靶心）
 
@@ -169,13 +169,13 @@ $\bar{f}$：$f^{*}$的期望（训练时瞄准的靶心）
 
 ### 同一环境采集不同测试集的best function
 
-<img src="C:\Users\Amberimzyj\AppData\Roaming\Typora\typora-user-images\image-20211124215408540.png" alt="image-20211124215408540" style="zoom:67%;" />
+<img src="pic/image-20211124215408540.png" alt="image-20211124215408540" style="zoom:67%;" />
 
 
 
 #### Variance分析
 
-<img src="C:\Users\Amberimzyj\AppData\Roaming\Typora\typora-user-images\image-20211124215452748.png" alt="image-20211124215452748" style="zoom:67%;" />
+<img src="pic/image-20211124215452748.png" alt="image-20211124215452748" style="zoom:67%;" />
 
 模型越简单，variance越小
 
@@ -187,7 +187,7 @@ $\bar{f}$：$f^{*}$的期望（训练时瞄准的靶心）
 
 #### Bias分析
 
-<img src="C:\Users\Amberimzyj\AppData\Roaming\Typora\typora-user-images\image-20211124215720256.png" alt="image-20211124215720256" style="zoom:67%;" />
+<img src="pic/image-20211124215720256.png" alt="image-20211124215720256" style="zoom:67%;" />
 
 blue：$\bar{f}$
 
@@ -201,7 +201,7 @@ black：$\hat{f}$
 
 #### Bias和Variance的影响
 
-<img src="C:\Users\Amberimzyj\AppData\Roaming\Typora\typora-user-images\image-20211124220016393.png" alt="image-20211124220016393" style="zoom:67%;" />
+<img src="pic/image-20211124220016393.png" alt="image-20211124220016393" style="zoom:67%;" />
 
 简单模型：Bias大（Underfitting，欠拟合），Variance小
 
@@ -232,7 +232,7 @@ black：$\hat{f}$
 
 ### Model选择步骤
 
-<img src="C:\Users\Amberimzyj\AppData\Roaming\Typora\typora-user-images\image-20211124221322831.png" alt="image-20211124221322831" style="zoom:67%;" />
+<img src="pic/image-20211124221322831.png" alt="image-20211124221322831" style="zoom:67%;" />
 
 Cross Validation步骤：
 
@@ -243,7 +243,7 @@ Cross Validation步骤：
 
 
 
-N-fold Cross Validation步骤：![image-20211124221444645](C:\Users\Amberimzyj\AppData\Roaming\Typora\typora-user-images\image-20211124221444645.png)
+N-fold Cross Validation步骤：![image-20211124221444645](pic/image-20211124221444645.png)
 
 
 
